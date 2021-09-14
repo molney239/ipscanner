@@ -68,16 +68,16 @@ if system() == "Windows":
 
 class PingResult:
     def __init__(self, address: str, available: bool, ping_ms: int):
-        self.IPv4 = address
+        self.address = address
         self.available = available
         self.ping_ms = ping_ms
 
 
 class ScanResult:
     def __init__(self, address: str, available: bool, mac: str, vendor_name: str, device_name: str, ping_ms: int):
-        self.IPv4 = address
+        self.address = address
         self.available = available
-        self.MAC = mac
+        self.mac = mac
         self.vendor_name = vendor_name
         self.device_name = device_name
         self.ping_ms = ping_ms
@@ -110,18 +110,18 @@ def print_result(result: ScanResult, colorized: bool = True) -> None:
     """
     if colorized:
         print("IPv4: {:29} | Available: {:17} | MAC: {:31} | Vendor name: {:30} | Device name: {:20} | Ping: {}".format(
-            str(colored(result.IPv4, 'blue')),
+            str(colored(result.address, 'blue')),
             str(colored("YES", 'green')) if result.available else str(colored("NO", 'red')),
-            str(colored(str(result.MAC), 'yellow')),
+            str(colored(str(result.mac), 'yellow')),
             str(result.vendor_name),
             str(result.device_name),
             str(result.ping_ms)) + "ms"
         )
     else:
         print("IPv4: {:15} | Available: {:3} | MAC: {:17} | Vendor name: {:30} | Device name: {:20} | Ping: {}".format(
-            str(result.IPv4),
+            str(result.address),
             ("YES" if result.available else "NO"),
-            str(result.MAC),
+            str(result.mac),
             str(result.vendor_name),
             str(result.device_name),
             str(result.ping_ms)) + "ms"
@@ -132,7 +132,7 @@ def ping(address: str, packets_count: int = 1, ping_timeout: int = 2000) -> Ping
     """
     Pings address.
 
-    :param address: Address.
+    :param address: IP v4 address.
     :param packets_count: Packets count.
     :param ping_timeout: Timeout (milliseconds).
     :return: PingResult object.
@@ -147,7 +147,7 @@ def ping(address: str, packets_count: int = 1, ping_timeout: int = 2000) -> Ping
 
 def scan(address: str, packets_count: int = 1, ping_timeout: int = 2000) -> ScanResult:
     """
-    Scans address address.
+    Scans IP v4 address.
 
     :param address: Address.
     :param packets_count: Ping packets count.

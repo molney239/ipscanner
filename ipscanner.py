@@ -110,9 +110,9 @@ def print_result(result: ScanResult, colorized: bool = True) -> None:
     """
     if colorized:
         print("IPv4: {:29} | Available: {:17} | MAC: {:31} | Vendor name: {:30} | Device name: {:20} | Ping: {}".format(
-            str(colored(result.IPv4, 'blue', 'on_grey')),
-            str(colored("YES", 'green', 'on_grey')) if result.available else str(colored("NO", 'red', 'on_grey')),
-            str(colored(str(result.MAC), 'yellow', 'on_grey')),
+            str(colored(result.IPv4, 'blue')),
+            str(colored("YES", 'green')) if result.available else str(colored("NO", 'red')),
+            str(colored(str(result.MAC), 'yellow')),
             str(result.vendor_name),
             str(result.device_name),
             str(result.ping)) + "ms"

@@ -6,9 +6,25 @@ Python script and module for scanning IPv4 addresses range. Shows basic informat
  - Device vendor name
  - Device name
  - Ping
+# Installation
+**Windows**:
+
+Download source code and unpack it.
+In unpacked directory run:
+```
+pip install -R requirements.txt
+```
+**Linux**:
+
+Download source code and unpack it or run
+```git clone https://github.com/molney239/ipscanner.git```.
+Then run
+```
+cd ipscanner
+pip install -R requirements.txt
+```
 # Usage
-For run script from console, clone repository using GitHub interface (or <code class="language-text" data-lang="text">git clone</code>, if you in Linux).
-Then, use python to run script with following options:
+Use python to run script with following options:
 ```
 usage: ipscanner.py [-h] [-v --verbosity] [-p --packets-count]
                     [-t --ping-timeout] [--non-colorized]
@@ -33,7 +49,7 @@ To run from python, first download file and store it in your project directory. 
 import ipscanner
 ```
 # Examples
-From console:
+From **console**:
 ```
 python ipscanner.py 192.168.1.0-192.168.1.255,8.8.8.8 -t 200 -v 1
 ```
@@ -44,7 +60,7 @@ IPv4: 192.168.1.53         | Available: YES      | MAC: 78:44:76:81:40:c2      |
 IPv4: 192.168.1.96         | Available: YES      | MAC: 80:91:33:cc:9d:2d      | Vendor name: AzureWave Technology Inc.      | Device name: Molney-Laptop        | Ping: 0.02ms
 IPv4: 8.8.8.8              | Available: YES      | MAC: None                   | Vendor name: None                           | Device name: None                 | Ping: 9.16ms
 ```
-Or from python:
+Or from **python**:
 ```
 import ipscanner
 ipscanner.scan_range(['192.168.1.1', '8.8.8.8'], ping_timeout=500, verbosity=3)

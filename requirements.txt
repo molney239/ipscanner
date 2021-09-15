@@ -1,0 +1,9 @@
+ipaddress
+pythonping
+getmac
+requests
+socket
+termcolor
+platform
+colorama
+argparse

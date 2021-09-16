@@ -12,7 +12,7 @@ Python script and module for scanning IPv4 addresses range. Shows basic informat
 Download source code and unpack it.
 In unpacked directory run:
 ```
-pip install -R requirements.txt
+pip install -r requirements.txt
 ```
 **Linux**:
 
@@ -21,7 +21,7 @@ Download source code and unpack it or run
 Then run
 ```
 cd ipscanner
-pip install -R requirements.txt
+pip install -r requirements.txt
 ```
 # Usage
 Use python to run script with following options:

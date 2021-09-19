@@ -3,6 +3,5 @@ pythonping
 getmac
 requests
 termcolor
-platform
 colorama
 argparse

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 """
@@ -7,7 +7,8 @@ Python script and module for scanning IPv4 addresses range. Shows basic informat
 
 Usage examples:
 From console:
-    python ipscanner.py 192.168.1.0-192.168.1.255,8.8.8.8 -p 2 -t 200 -v 1
+    pip3 install -r requirements.txt
+    python3 ipscanner.py 192.168.1.0-192.168.1.255,8.8.8.8 -p 2 -t 200 -v 1
     This command starting script for scanning address in local network and 8.8.8.8 address.
 
 From python:
@@ -108,8 +109,13 @@ def print_result(result: ScanResult, colorized: bool = True) -> None:
     :param result: ScanResult object.
     :param colorized: Colorize output. Disable, if the output is not in the correct format.
     """
+    output = ""
+    if colorized and system() == "Windows":
+        output = "IPv4: {:29} | Available: {:17} | MAC: {:31} | Vendor name: {:30} | Device name: {:20} | Ping: {}"
+    else:
+        output = "IPv4: {:15} | Available: {:3} | MAC: {:17} | Vendor name: {:30} | Device name: {:20} | Ping: {}"
     if colorized:
-        print("IPv4: {:29} | Available: {:17} | MAC: {:31} | Vendor name: {:30} | Device name: {:20} | Ping: {}".format(
+        print(output.format(
             str(colored(result.address, 'blue')),
             str(colored("YES", 'green')) if result.available else str(colored("NO", 'red')),
             str(colored(str(result.mac), 'yellow')),
@@ -118,7 +124,7 @@ def print_result(result: ScanResult, colorized: bool = True) -> None:
             str(result.ping_ms)) + "ms"
         )
     else:
-        print("IPv4: {:15} | Available: {:3} | MAC: {:17} | Vendor name: {:30} | Device name: {:20} | Ping: {}".format(
+        print(output.format(
             str(result.address),
             ("YES" if result.available else "NO"),
             str(result.mac),

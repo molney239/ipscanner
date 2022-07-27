@@ -11,7 +11,7 @@ Python script and module for scanning IPv4 addresses range. Shows basic informat
 
 Download source code and unpack it.
 In unpacked directory run:
-```
+```bash
 pip install -r requirements.txt
 ```
 **Linux**:
@@ -19,7 +19,7 @@ pip install -r requirements.txt
 Download source code and unpack it or run
 ```git clone https://github.com/molney239/ipscanner.git```.
 Then run
-```
+```bash
 cd ipscanner
 pip install -r requirements.txt
 ```
@@ -45,12 +45,12 @@ optional arguments:
                       correct format.)
 ```
 To run from python, first download file and store it in your project directory. Then, write:
-```
+```python
 import ipscanner
 ```
 # Examples
 From **console**:
-```
+```bash
 python ipscanner.py 192.168.1.0-192.168.1.255,8.8.8.8 -t 200 -v 1
 ```
 Sample output:
@@ -61,7 +61,7 @@ IPv4: 192.168.1.96         | Available: YES      | MAC: 80:91:33:cc:9d:2d      |
 IPv4: 8.8.8.8              | Available: YES      | MAC: None                   | Vendor name: None                           | Device name: None                 | Ping: 9.16ms
 ```
 Or from **python**:
-```
+```python
 import ipscanner
 ipscanner.scan_range(['192.168.1.1', '8.8.8.8'], ping_timeout=500, verbosity=3)
 ```
